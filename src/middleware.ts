@@ -17,6 +17,11 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL('/451', req.url))
   }
 
+   // Redirect to /swap if the requested path is the root ("/")
+  if (url.pathname === '/') {
+    return NextResponse.redirect(new URL('/swap', url));
+  }
+
   return res
 }
 
